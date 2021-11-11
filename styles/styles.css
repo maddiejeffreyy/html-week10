@@ -98,3 +98,98 @@ nav ul li{
 				        Flexbox
 ***********************************************************/
 
+nav ul{
+	/* set the container to display:flex */
+	display:flex;
+	justify-content: space-around;
+	/* space-evenly, space-between */
+}
+/* justify content tells the browser how you want the items in the flexbox to behave on the main axis */
+
+/* the divw with the class bodyflex contains both the main and the aside */
+.bodyflex{
+	display: flex;
+}
+
+main{
+	/* width:75%; */
+	flex-basis: 0;
+	flex-grow: 2;
+	
+}
+
+aside{
+	/* width: 25%; */
+	flex-basis: 0;
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+}
+/* display flex is not inherited so if you want the aside to also use flexbox you must set it */
+
+aside .sidebarbox{
+	/* by default flex basis is set to "auto", which means shrink size of content if we give
+	it a number we assign a level of importance to the items - if they all have the same number
+	they all have the same importance */
+	flex-basis: 0;
+	/* then you have to use flex grow or flex shrink to tell the boxex how you want them to grow or
+	shrink relative to the space they have to eachother */
+	flex-grow: 1;
+
+	display:flex;
+/* justify content looks at the main access (by default its horizontal) */
+	justify-content: center;
+	align-items: center;
+	/* align items looks at the cross axis (by default it's vertical) */
+}
+
+#fish{
+	display: flex;
+	/* use flex wrap to allow the flex to wrap to the next line (or as many lines as neccessary)
+	flex-wrap:wrap; */
+}
+
+#fish img{
+	width:100%;
+}
+
+#rainbow{
+	/* without any other instructioin, elements with no content disappear when they are first set to display flex */
+	display: flex;
+}
+
+#rainbow div{
+	flex-grow: 1;
+}
+
+#rainbow #re, #rainbow #bl{
+	flex-grow: 2;
+}
+
+#rainbow #gr{
+	flex-grow: 4;
+	/* a positive number will move it toward the end of the axis (in this case, with the horizontal axis, towards the right) */
+	order: 1;
+}
+
+#rainbow #ye{
+	/* a negative number will move it toward the start of the main axis (in this case, with the horizontal axis, towars the left */
+	order: -1;
+}
+
+#rainbow #in{
+	/* a higher number is more important so -2 will set this further to the start than -1 */
+	order: -2;
+}
+
+#content{
+	display: flex;
+}
+/* div with content will try to take up as much space as they need, relative to the content of the other boxes */
+
+/* flex is a shorthand property that combines flex-grow, flex-basis, and flex-shrink (in that order) */
+#content p:nth-child(1){flex: 1 1 1;}
+#content p:nth-child(1){flex: 2 1 0;}
+#content p:nth-child(1){flex: 1 1 0;}
+#content p:nth-child(1){flex: 3 1 0;}
+#content p:nth-child(1){flex: 1 1 0;}
